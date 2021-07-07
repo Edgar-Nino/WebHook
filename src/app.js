@@ -7,7 +7,7 @@ app.set('port', 5000);
 app.use(morgan('dev'));
 
 app.get('/', (req,res)=>{
-    return res.write("Hola mundo")
+    return res.send("Hola mundo")
 });
 
 app.post('/api/notification', (req,res)=>{
@@ -15,7 +15,7 @@ app.post('/api/notification', (req,res)=>{
     {
         res.set('Content-Type', 'text/plain')
         console.log(req.query.validationToken)
-        return res.status(200).write(req.query.validationToken);
+        return res.status(200).send(req.query.validationToken);
     }
 });
 
